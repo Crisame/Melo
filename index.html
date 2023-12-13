@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ramos de Colores para misslet </title>
+  <style>
+    body {
+      background-color: black;
+      color: white;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+      font-family: Arial, sans-serif;
+    }
+
+    button {
+      padding: 20px;
+      font-size: 18px;
+      background-color: white;
+      color: black;
+      border: none;
+      cursor: pointer;
+      margin-bottom: 20px;
+    }
+
+    #contenido {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      width: 100%;
+    }
+
+    #videoContainer {
+      width: 50%;
+    }
+
+    video {
+      max-width: 100%;
+      height: auto;
+    }
+
+    .infoContainer {
+      width: 40%;
+      text-align: center;
+    }
+
+    .infoContainer img {
+      max-width: 100%;
+      height: auto;
+    }
+
+    .botonSiguiente {
+      margin-top: 20px;
+      padding: 10px;
+      font-size: 16px;
+      background-color: white;
+      color: black;
+      border: none;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+  <button onclick="iniciarPresentacion()">Iniciar</button>
+
+  <div id="contenido" style="display:none;">
+    <div id="videoContainer">
+      <video id="video" autoplay loop>
+        <source src="LastChristmas.mp4" type="video/mp4">
+        Tu navegador no soporta el elemento de video.
+      </video>
+    </div>
+
+    <div id="info1" class="infoContainer">
+      <img src="ramo_azul.png" alt="Ramo Azul">
+      <p><strong>Ramo Azul</strong></p>
+      <p>Están asociados a la paz y la tranquilidad y transmiten lealtad hacia ese alguien indicado.</p>
+      <button class="botonSiguiente" onclick="siguienteSlide(2)">Siguiente</button>
+    </div>
+  </div>
+
+  <script>
+    function iniciarPresentacion() {
+      document.getElementById('contenido').style.display = 'flex';
+      document.getElementById('video').play();
+    }
+
+    function siguienteSlide(siguiente) {
+      var infoAnterior = document.getElementById('info1');
+      infoAnterior.style.display = 'none';
+
+      var siguienteInfo = document.getElementById('info' + siguiente);
+      siguienteInfo.style.display = 'block';
+    }
+  </script>
+
+</body>
+</html>
